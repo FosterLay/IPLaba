@@ -1,7 +1,7 @@
-<p> Вариант 8
+<p> Вариант 2
 <p> 
 <?php
-    require_once "lbry/lbr2fail.php";
+    require_once "lbry/lbr2.php";
 
     print_task();
 
