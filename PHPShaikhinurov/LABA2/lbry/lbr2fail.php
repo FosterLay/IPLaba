@@ -17,17 +17,21 @@
     }
 
 	
-	function raschet($a, $N){
-        for ($i = 0; $i < $N; $i++){
-	    $razsum = 0;
-            for ($j = 0; $j < $N; $j++){
-		$razsum = $a[$i][$j] - $a[$j][$i];
-                $a[$i][$i] = $razsum;
+    function raschet($a, $N){
+          for ($i=0; $i<$N; $i++){
+            $sumstr = 0;
+            for ($j=0; $j<$N; $j++){
+               $sumstr = $sumstr + $a[$i][$j];
             }
-        }
-
+	    $sumstlb=0;
+            for ($j=0; $j<$N; $j++){
+               $sumstlb = $sumstlb + $a[$j][$i];
+            }
+            $razsum = $sumstr - $sumstlb;
+            $a[$i][$i] = $razsum;
+          }
         return $a;
-    }
+   }
 
     function print_matrix($a, $N){
         for ($i = 0; $i < $N; $i++){
@@ -38,3 +42,6 @@
         }
     }
 ?>
+
+
+	
