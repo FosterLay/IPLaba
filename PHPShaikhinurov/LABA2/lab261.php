@@ -1,7 +1,7 @@
 <p> Вариант 1
 <p> 
 <?php
-    require_once "lbry/lbr1.php";
+    require_once "lib/lib1.php";
 
     print_task();
 
@@ -16,4 +16,4 @@
 
     echo "<p> Скорректированная матрица";
     print_matrix($a, $N);
-?>s
+?>
