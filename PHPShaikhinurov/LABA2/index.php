@@ -10,5 +10,5 @@
 	<li><a href="lab251.php">Упражнение 5 (В1)</a>
 	<li><a href="lab252.php">Упражнение 5 (В8)</a>
 	<li><a href="lab261.php">Упражнение 6 (В1)</a>
-	<li><a href="lab262.php">Упражнение 6 (В2)</a>
+	<li><a href="lab262fail.php">Упражнение 6 (В8)</a>
 </ul>
