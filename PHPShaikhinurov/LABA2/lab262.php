@@ -1,7 +1,7 @@
 <p> Вариант 2
 <p> 
 <?php
-    require_once "lib/lib2.php";
+    require_once "lbry/lbr2.php";
 
     print_task();
 
