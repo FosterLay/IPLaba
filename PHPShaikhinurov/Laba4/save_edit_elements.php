@@ -13,12 +13,10 @@
             $release_amount = $_GET['release_amount'];
             $price = $_GET['price'];
 
-            $zapros="UPDATE automobiles SET Brand='$Brand',
+            $result = $mysqli->query("UPDATE automobiles SET Brand='$Brand',
             models='$models', date_release='$date_release',
             transmission='$transmission', release_amount ='$release_amount',
             price ='$price' WHERE id='$id'");
-
-            $result = $mysqli->query($zapros);
 
             if ($result) {
                 echo 'Все сохранено.';
