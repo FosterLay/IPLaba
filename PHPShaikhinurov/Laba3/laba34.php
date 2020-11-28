@@ -1,7 +1,7 @@
 <HTML>
     <BODY>
     <meta charset = "UTF-8">
-        <H1> Задача 3.4: Проверка имени пользователя: </H1>
+        <H1> Задача 3.4: Проверка имени пользователя: через метод GET </H1>
         <FORM action="<?php print $PHP_SELF ?>" method="post">
             Введите логин пользователя:
             <INPUT type="text" name="userName" maxlength="50">
