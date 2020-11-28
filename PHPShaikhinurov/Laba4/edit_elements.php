@@ -23,7 +23,7 @@
             }
 
             print "<form action='save_edit_elements.php' metod='get'>";
-            print "Марка: <input name='new_Brand' size='50' type='text' value='$Brand'>";
+            print "Марка: <input name='Brand' size='50' type='text' value='$Brand'>";
             print "<br>Модель: <input name='models' size='20' type='text' value='$models'>";
             print "<br>Год выпуска: <input name='date_release' size='20' type='date' value='$date_release'>";
             print "<br>Трансмиссия: <input name='transmission' size='30' type='text' value='$transmission'>";
