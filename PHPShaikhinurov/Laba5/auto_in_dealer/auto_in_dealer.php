@@ -14,22 +14,28 @@
             }
 
             // Запрос на выборку сведений о пользователях
-            $result = $mysqli->query("SELECT auto_in_dealer.id, auto_in_dealer.purchase_date, auto_in_dealer.expiry_date,
-                games.name as game, autodealer.name as store, auto_in_dealer.price, auto_in_dealer.key_code FROM auto_in_dealer
-                LEFT JOIN games ON auto_in_dealer.game_id=games.id
-                LEFT JOIN autodealer ON auto_in_dealer.store_id=autodealer.id"
-            );
 
+            $result = $mysqli->query("SELECT
+                auto_in_dealer.id,
+                auto_in_dealer.price,
+
+                automobiles.Brand as automob,
+                autodealer.name as dealer
+                FROM auto_in_dealer
+                LEFT JOIN automobiles ON auto_in_dealer.idauto=automobiles.id
+                LEFT JOIN autodealer ON auto_in_dealer.iddealer=autodealer.id
+            ");
+            
             $counter=0;
             if ($result){
                 while ($row = $result->fetch_array()){
                     $id = $row['id'];
-                    $idauto = $row['idauto'];
-                    $iddealer = $row['iddealer'];
+                    $idauto = $row['automob'];
+                    $iddealer = $row['dealer'];
                     $price = $row['price'];
                     
                     echo "<tr>";
-                    echo "<td>$purchase_date</td><td>$expiry_date</td><td>$game</td><td>$store</td><td>$price</td><td>$key_code</td>";
+                    echo "<td>$idauto</td><td>$iddealer</td><td>$price</td><td";
                     echo "<td><button style='color: blue' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
                     echo "<td><button style='color: blue' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
                     echo "</tr>";
@@ -38,8 +44,8 @@
                 }
             }
             print "</table>";
-            print("<p>Всего игр: $counter </p>");
+            print("<p>Автомобилей в наличии: $counter </p>");
         ?>
-    <button style='color: blue' onclick="window.location.href='new.php'">Добавить ключ</button></td>
+    <button style='color: blue' onclick="window.location.href='new.php'">Добавить автомобиль</button></td>
     <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>

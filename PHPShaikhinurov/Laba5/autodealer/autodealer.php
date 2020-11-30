@@ -4,7 +4,7 @@
     <h2>Список автодилеров:</h2>
     <table border="1">
         <tr>
-            <th> Название </th> <th> Адрес </th>
+        <th> ID </th><th> Название </th> <th> Адрес </th>
         </tr>
         <?php
             $mysqli = new mysqli("eu-cdbr-west-03.cleardb.net", "b0ce4d11992198", "ad55ff31", "heroku_955ee9896fe710e");
@@ -26,15 +26,15 @@
                     $counter++;
 
                     echo "<tr>";
-                    echo "<td>$name</td><td>$mail</td>";
+                    echo "<td>$id</td><td>$name</td><td>$mail</td>";
                     echo "<td><button style='color: blue' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
                     echo "<td><button style='color: blue' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
                     echo "</tr>";
                 }
             }
             print "</table>";
-            print("<p>Всего магазинов: $counter </p>");
+            print("<p>Всего автодилеров: $counter </p>");
         ?>
-    <button style='color: blue' onclick="window.location.href='new.php'">Добавить магазин</button></td>
+    <button style='color: blue' onclick="window.location.href='new.php'">Добавить дилера</button></td>
     <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>

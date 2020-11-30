@@ -24,4 +24,6 @@
         print "Ошибка сохранения.";
     }
 ?>
-<a href='index.php'> Вернуться к списку автомобилей </a>
+    <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+    <button style='color: blue' onclick="window.location.href='index.php'">Вернуться к списку автомобилей</button></td>
+<!-- <a href='index.php'> Вернуться к списку автомобилей </a> -->

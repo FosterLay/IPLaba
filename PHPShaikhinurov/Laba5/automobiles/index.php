@@ -10,7 +10,7 @@
     <h2>Список планет:</h2>
     <table border="1">
         <tr>
-            <th> Марка </th> <th> Модель </th> <th> Год выпуска </th>
+        <th> ID </th> <th> Марка </th> <th> Модель </th> <th> Год выпуска </th>
             <th> Трансмиссия </th> <th> Объём выпуска </th> <th> Стоимость </th> <th> Редактировать </th> <th> Уничтожить </th>
         </tr>
         <?php
@@ -37,8 +37,10 @@
 
                     $counter++;
 
+                    $date_release = date('d-m-Y' , strtotime($date_release));
+
                     echo "<tr>";
-                    echo "<td>$Brand</td><td>$models</td><td>$date_release</td><td>$transmission</td><td>$release_amount</td><td>$price</td>";
+                    echo "<td>$id</td><td>$Brand</td><td>$models</td><td>$date_release</td><td>$transmission</td><td>$release_amount</td><td>$price</td>";
                     echo "<td><a href='edit_elements.php?id=$id'>Редактировать</a></td>";
                     echo "<td><a href='delete_elements.php?id=$id'>Удалить</a></td>";
                     echo "</tr>";

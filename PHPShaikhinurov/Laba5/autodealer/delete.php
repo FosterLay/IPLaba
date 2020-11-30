@@ -5,7 +5,7 @@
     }
 
     $id = $_GET['id'];
-    // Удаление ключей из этого магазина
+    // Удаление автомобилей у дилера
     $result = $mysqli->query("DELETE FROM auto_in_dealer WHERE store_id='$id'");
     // Удаление автодилера
     $result = $mysqli->query("DELETE FROM autodealer  WHERE id='$id'");
