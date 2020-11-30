@@ -37,6 +37,7 @@
 
                     $counter++;
 
+                    $date_release = date('d-m-Y' , strtotime($date_release));
                     echo "<tr>";
                     echo "<td>$Brand</td><td>$models</td><td>$date_release</td><td>$transmission</td><td>$release_amount</td><td>$price</td>";
                     echo "<td><a href='edit_elements.php?id=$id'>Редактировать</a></td>";

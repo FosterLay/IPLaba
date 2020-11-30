@@ -22,7 +22,9 @@
                 }
             }
 
-            print "<form action='save_edit_elements.php' metod='get'>";
+            $date_release = date('d-m-Y' , strtotime($date_release));
+            
+            print "<form action='save_edit_elements.php' method='get'>";
             print "Марка: <input name='Brand' size='50' type='text' value='$Brand'>";
             print "<br>Модель: <input name='models' size='20' type='text' value='$models'>";
             print "<br>Год выпуска: <input name='date_release' size='20' type='date' value='$date_release'>";
