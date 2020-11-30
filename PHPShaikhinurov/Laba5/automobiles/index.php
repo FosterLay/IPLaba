@@ -7,7 +7,7 @@
 <html>
     <head> <title> Сведения о прользователях сайта </title> </head>
 
-    <h2>Список планет:</h2>
+    <h2>Список автомобилей:</h2>
     <table border="1">
         <tr>
         <th> ID </th> <th> Марка </th> <th> Модель </th> <th> Год выпуска </th>
@@ -51,5 +51,5 @@
             
         ?>
         <button style='color: blue' onclick="window.location.href='create_elements.php'">Добавить автомобиль</button></td>
-        <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+        <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>

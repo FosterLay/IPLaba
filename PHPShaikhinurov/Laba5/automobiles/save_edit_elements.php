@@ -25,6 +25,7 @@
                 echo 'Ошибка сохранения.';
             }
         ?>
-        <a href="index.php"> Вернуться к списку автомобилей</a>
+        <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+        <button style='color: green' onclick="window.location.href='index.php'">Вернуться к списку автодилеров</button></td>
     </body>
 </html>

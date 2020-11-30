@@ -25,6 +25,6 @@
             ?>
             <p><input type='submit' name='save' value='Сохранить'></p>
         </form>
-        <p><button style='color: red' onclick="window.location.href='autodealer.php'">Вернуться к списку автодилер</button></td></p>
+        <p><button style='color: green' onclick="window.location.href='autodealer.php'">Вернуться к списку автодилеров</button></td></p>
     </body>
 </html>

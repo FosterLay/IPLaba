@@ -18,5 +18,5 @@
     }
     echo "<p>$result";
 ?>
-    <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
-    <button style='color: blue' onclick="window.location.href='autodealer.php'">Вернуться к списку автомобилей</button></td>
+    <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+    <button style='color: green' onclick="window.location.href='autodealer.php'">Вернуться к списку автомобилей</button></td>

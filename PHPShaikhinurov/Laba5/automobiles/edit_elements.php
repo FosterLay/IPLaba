@@ -35,6 +35,6 @@
         ?>
         <input type='submit' name='save' value='Сохранить'>
         </form>
-        <p><a href='index.php'> Вернуться к списку автомобилей </a>
+        <button style='color: green' onclick="window.location.href='index.php'">Вернуться к списку автомобилей</button></td>
     </body>
 </html>

@@ -35,6 +35,6 @@
             print "</table>";
             print("<p>Всего автодилеров: $counter </p>");
         ?>
-    <button style='color: blue' onclick="window.location.href='new.php'">Добавить дилера</button></td>
-    <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+    <button style='color: green' onclick="window.location.href='new.php'">Добавить дилера</button></td>
+    <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>
