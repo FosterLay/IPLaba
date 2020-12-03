@@ -1,12 +1,3 @@
-<h2>Управление БД</h2>
-<ul id="nav"> <!-- Собственные скрипты для просмотра и редактирования БД -->
-    <li><a href="../BazaDanniyh/commander.php">Коммандер для БД</a>
-    <li><a href="../BazaDanniyh/show_bd.php">Редактирование БД</a>
-</ul>
-
-<html>
-    <head> <title> Сведения о прользователях сайта </title> </head>
-
     <h2>Список автомобилей:</h2>
     <table border="1">
         <tr>
@@ -40,9 +31,9 @@
                     $date_release = date('d-m-Y' , strtotime($date_release));
 
                     echo "<tr>";
-                    echo "<td>$id</td><td>$Brand</td><td>$models</td><td>$date_release</td><td>$transmission</td><td>$release_amount</td><td>$price</td>";
-                    echo "<td><a href='edit_elements.php?id=$id'>Редактировать</a></td>";
-                    echo "<td><a href='delete_elements.php?id=$id'>Удалить</a></td>";
+                    echo "<td>$id</td><td>$Brand</td><td>$models</td><td>$date_release</td><td>$transmission</td><td>$release_amount</td><td>$price</td>";;
+                    echo "<td><button style='color: green' onclick=\"window.location.href='edit_elements.php?id=$id'\">Редактировать</button></td>";
+                    echo "<td><button style='color: red' onclick=\"window.location.href='delete_elements.php?id=$id'\">Удалить</button></td>";
                     echo "</tr>";
                 }
             }
@@ -50,6 +41,6 @@
             print("<p>Всего автомобилей: $counter </p>");
             
         ?>
-        <button style='color: blue' onclick="window.location.href='create_elements.php'">Добавить автомобиль</button></td>
+        <button style='color: green' onclick="window.location.href='create_elements.php'">Добавить автомобиль</button></td>
         <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>

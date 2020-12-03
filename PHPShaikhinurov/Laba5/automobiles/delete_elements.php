@@ -6,6 +6,8 @@
 
     $id = $_GET['id'];
 
+    $result = $mysqli->query("DELETE FROM auto_in_dealer WHERE idauto='$id'");
+
     $result = $mysqli->query("DELETE FROM automobiles WHERE id='$id'");
 
     header("Location: index.php");

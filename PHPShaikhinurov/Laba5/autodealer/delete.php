@@ -6,7 +6,7 @@
 
     $id = $_GET['id'];
     // Удаление автомобилей у дилера
-    $result = $mysqli->query("DELETE FROM auto_in_dealer WHERE store_id='$id'");
+    $result = $mysqli->query("DELETE FROM auto_in_dealer WHERE iddealer='$id'");
     // Удаление автодилера
     $result = $mysqli->query("DELETE FROM autodealer  WHERE id='$id'");
 

@@ -1,5 +1,5 @@
 <html>
-    <head> <title> Сведения о автодилера </title> </head>
+    <head> <title> Сведения о автодилере </title> </head>
 
     <h2>Список автодилеров:</h2>
     <table border="1">
@@ -27,8 +27,8 @@
 
                     echo "<tr>";
                     echo "<td>$id</td><td>$name</td><td>$mail</td>";
-                    echo "<td><button style='color: blue' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
-                    echo "<td><button style='color: blue' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
+                    echo "<td><button style='color: green' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
+                    echo "<td><button style='color: red' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
                     echo "</tr>";
                 }
             }

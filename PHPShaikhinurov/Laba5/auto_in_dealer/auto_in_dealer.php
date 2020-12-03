@@ -1,10 +1,10 @@
 <html>
-    <head> <title> Сведения об ключах </title> </head>
+    <head> <title> Сведения об автомобилях в наличии </title> </head>
 
-    <h2> Список ключей: </h2>
+    <h2> Автомобили в наличии: </h2>
     <table border="1">
         <tr>
-            <th> Id Автомобиля </th> <th> Id Дилера </th> <th> Цена </th>
+            <th>Автомобиль </th> <th> Дилер </th> <th> Цена </th>
 
         </tr>
         <?php
@@ -20,24 +20,26 @@
                 auto_in_dealer.price,
 
                 automobiles.Brand as automob,
+                automobiles.models as automod,
                 autodealer.name as dealer
                 FROM auto_in_dealer
                 LEFT JOIN automobiles ON auto_in_dealer.idauto=automobiles.id
-                LEFT JOIN autodealer ON auto_in_dealer.iddealer=autodealer.id
-            ");
-            
+                LEFT JOIN autodealer ON auto_in_dealer.iddealer=autodealer.id");
+               
             $counter=0;
             if ($result){
                 while ($row = $result->fetch_array()){
                     $id = $row['id'];
                     $idauto = $row['automob'];
+                    $namemod = $row['automod'];
                     $iddealer = $row['dealer'];
                     $price = $row['price'];
                     
                     echo "<tr>";
-                    echo "<td>$idauto</td><td>$iddealer</td><td>$price</td><td";
-                    echo "<td><button style='color: blue' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
-                    echo "<td><button style='color: blue' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
+                    echo "<td>$idauto - $namemod</td><td>$iddealer</td><td>$price</td><td";
+                    echo "<td></td>";
+                    echo "<td><button style='color: green' onclick=\"window.location.href='edit.php?id=$id'\">Редактировать</button></td>";
+                    echo "<td><button style='color: red' onclick=\"window.location.href='delete.php?id=$id'\">Удалить</button></td>";
                     echo "</tr>";
 
                     $counter++;
@@ -46,6 +48,6 @@
             print "</table>";
             print("<p>Автомобилей в наличии: $counter </p>");
         ?>
-    <button style='color: blue' onclick="window.location.href='new.php'">Добавить автомобиль</button></td>
-    <button style='color: blue' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
+    <button style='color: green' onclick="window.location.href='new.php'">Добавить автомобиль</button></td>
+    <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
 </html>

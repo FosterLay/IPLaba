@@ -6,17 +6,14 @@
 
     $id = $_GET['id'];
 
-    $purchase_date = $_GET['purchase_date'];
-    $expiry_date = $_GET['expiry_date'];
-    $game_id = $_GET['game_id'];
-    $store_id = $_GET['store_id'];
+    $idauto = $_GET['idauto'];
+    $iddealer = $_GET['iddealer'];
     $price = $_GET['price'];
-    $key_code = $_GET['key_code'];
 
     $result = $mysqli->query("UPDATE auto_in_dealer
-        SET purchase_date='$purchase_date', expiry_date='$expiry_date',
-        game_id='$game_id', store_id='$store_id',
-        price='$price', key_code='$key_code'
+        SET idauto='$idauto',
+        iddealer='$iddealer',
+        price='$price'
         WHERE id='$id'"
     );
 
