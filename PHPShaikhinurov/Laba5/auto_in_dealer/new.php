@@ -1,7 +1,7 @@
 <html>
-    <head> <title> Добавление нового автодилера </title> </head>
+    <head> <title> Добавление нового автомобиля в наличии </title> </head>
     <body>
-        <H2>Добавление нового дилера</H2>
+        <H2>Добавление нового автомобиля в наличии</H2>
         <form action="save_new.php" method="get">
         <?php
          $mysqli = new mysqli("eu-cdbr-west-03.cleardb.net", "b0ce4d11992198", "ad55ff31", "heroku_955ee9896fe710e");

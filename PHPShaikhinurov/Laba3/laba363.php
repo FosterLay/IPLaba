@@ -5,7 +5,6 @@
 где n- постоянно меняющееся число от a до b. Результат показывать в html виде, чтобы было видно форматирование. </H2>
 <H3>Каждое предложение должно заканчиваться точкой</H3>
   <FORM action="<?php print $PHP_SELF ?>" method="post">
-  
     <p>Изначальное предложение: <INPUT type="text" name="predl1" maxlength="50"></p>
     <p>a: <INPUT type="text" name="a" maxlength="50"></p>
     <p>b: <INPUT type="text" name="b" maxlength="50"></p>
@@ -41,10 +40,7 @@
             echo "<p>". substr ($predl1, $offsetstart)."</p>";
             break;
           }
-
         }
-
-
       }
   ?>
 
