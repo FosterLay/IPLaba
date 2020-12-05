@@ -3,8 +3,47 @@
     <body>
         <H2>Добавление нового дилера</H2>
         <form action="save_new.php" method="get">
-            id автомобиля: <input name="idauto" size="20" type="text">
-            <br>id автодилера: <input name="iddealer" size="30" type="text">
+        <?php
+         $mysqli = new mysqli("eu-cdbr-west-03.cleardb.net", "b0ce4d11992198", "ad55ff31", "heroku_955ee9896fe710e");
+         if ($mysqli->connect_errno) {
+                 echo "Не удалось подключиться к БД";
+             }
+        $result = $mysqli->query("SELECT id, Brand, models FROM automobiles");
+                echo "<br>Автомобиль: <select name='idauto'>";
+                
+
+                if ($result){
+                    $row = $result->fetch_array();
+                    $id = $row['id'];
+                        $Brand = $row['Brand'];
+                        $models = $row['models'];
+                    echo "<option selected value='$id'>$Brand - $models</option>";
+                    while ($row = $result->fetch_array()){
+                        $id = $row['id'];
+                        $Brand = $row['Brand'];
+                        $models = $row['models'];
+
+                        echo "<option value='$id'>$Brand - $models</option>";
+                    }
+                }
+                echo "</select>";
+
+                $result = $mysqli->query("SELECT id, name FROM autodealer ");
+                echo "<br>Дилер: <select name='iddealer'>";
+                if ($result){
+                    $row = $result->fetch_array();
+                    $id = $row['id'];
+                        $name = $row['name'];
+                        echo "<option selected value='$id'>$name</option>";
+                        while ($row = $result->fetch_array()){
+                        $id = $row['id'];
+                        $name = $row['name'];
+
+                        echo "<option value='$id'>$name</option>";
+                    }
+                }
+                echo "</select>";
+        ?>
             <br>Стоимость: <input name="price" size="30" type="text">
             <p>
                 <input name="add" type="submit" value="Добавить">
