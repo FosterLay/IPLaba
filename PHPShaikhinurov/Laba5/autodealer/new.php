@@ -1,7 +1,7 @@
 <html>
-    <head> <title> Добавление нового автомобиля у дилера </title> </head>
+    <head> <title> Добавление нового дилера </title> </head>
     <body>
-        <H2>Добавление нового автомобиля у дилера:</H2>
+        <H2>Добавление нового дилера:</H2>
         <form action="save_new.php" method="get">
             Название: <input name="name" size="20" type="text">
             <br>Адрес: <input name="mail" size="30" type="text">

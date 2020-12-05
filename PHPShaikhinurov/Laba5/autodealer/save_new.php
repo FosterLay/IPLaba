@@ -11,7 +11,7 @@
     $result = $mysqli->query("INSERT INTO autodealer SET name='$name', mail='$mail'");
     
     if ($result){
-        print "<p>Вы успешно внесли автомобиль в базе данных.";
+        print "<p>Вы успешно добавили автодилера.";
     }
     else{
         print "Ошибка сохранения.";
@@ -19,4 +19,4 @@
     echo "<p>$result";
 ?>
     <button style='color: red' onclick="window.location.href='../index.php'">Вернуться в меню</button></td>
-    <button style='color: green' onclick="window.location.href='autodealer.php'">Вернуться к списку автомобилей</button></td>
+    <button style='color: green' onclick="window.location.href='autodealer.php'">Вернуться к списку автодилеров</button></td>
