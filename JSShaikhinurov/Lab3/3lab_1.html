@@ -1,0 +1,42 @@
+﻿<html>
+    <head>
+	<title>Лаврентьева Е.А.</title>
+        <meta charset = "UTF-8">
+        <style>
+            .center-img {
+              display: block;
+              margin: 0 auto;
+            }
+            .button{
+               height: 50px;
+               display:block;
+               position: relative;
+               margin:0 auto;
+        }
+        </style>
+    </head>
+    <body>
+        <section id="serials_b"></section>
+        <input type="button" value="Еще сериал" onclick="upload();" class="button">
+    </body>
+
+    <script language="JavaScript" src="jquery-3.6.0.js"></script>
+    <script language="JavaScript">
+        var get_s = 0;
+        var need_to_get = 1;
+
+        $(document).ready(upload());
+
+        function upload() {
+            get_s += need_to_get;
+            $.ajax({
+                type: "GET",
+                url: "serials.php?get_s=" + get_s + "&need_to_get=" + need_to_get,
+                dataType: "html",
+                success: function(data){
+                    document.getElementById("serials_b").innerHTML += data;
+                }
+            });
+        }
+    </script>
+</html>
