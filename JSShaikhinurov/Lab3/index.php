@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Лаврентьева Е.А.</title>
+    <title>ЛР 3.</title>
 <meta charset="utf-8" />
 </head>
 <body>
