@@ -1,0 +1,31 @@
+<html>
+    <title>Задание 7</title>
+    <head>
+        <title>array</title>
+        <script language="JavaScript">
+            function arrays(){
+                year = new Array(
+                    " Русский язык",
+                    " Английский язык",
+                    " Французский язык",
+                    " Литература",
+                    " Изобразительное искусство",
+                    " Этика",
+                    " Информатика",
+                    " Биология",
+                    " Математика",
+                    " Физика"
+                );
+                art = year.slice(0,6);
+                scince = year.slice(6,10);
+                document.write("Точные науки: ", scince+"<br>");
+                document.write("Гуманитарные науки: ", art+"<br>");
+            }
+        </script>
+        
+    </head>
+    <body>
+        <meta charset = "UTF-8">
+        <script>arrays();</script>
+    </body>
+</html>
