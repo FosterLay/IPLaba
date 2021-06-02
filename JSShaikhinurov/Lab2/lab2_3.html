@@ -1,53 +1,46 @@
 <html>
     <title>Задание 3</title>
+    <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    </head>
     <body>
-        <meta charset = "UTF-8">
-        <p>Нажимайте на стрелочки, чтобы двигать Каппу</p>
-        <img id="kappa" src="kappa.png" style="position: absolute;">
-    </body>
-    <script language="JavaScript" src="../../JSShaikhinurov/jquery.js"></script>
-    <script language="JavaScript">
-        var current_position_x=0, current_position_y=0;
-
-        document.onkeydown = function(e){
-            var window_width = window.innerWidth, window_height = window.innerHeight;
-
-            switch(e.which) {
-                case 37: // left
-                    current_position_x-=100;
-                    if (current_position_x<0){
-                        current_position_x=0;
-                    }
-                break;
-
-                case 38: // up
-                    current_position_y-=100;
-                    if (current_position_y<0){
-                        current_position_y=0;
-                    }
-                break;
-
-                case 39: // right
-                    current_position_x+=500;
-                    if (current_position_x>window_width-400){
-                        current_position_x=window_width-400;
-                    }
-                break;
-
-                case 40: // down
-                    current_position_y+=500;
-                    if (current_position_y>window_height-400){
-                        current_position_y=window_height-400;
-                    }
-                break;
-
-                default: return; // exit this handler for other keys
-            }
-            $("#car").animate({
-                left: String(current_position_x)+"px",
-                top: String(current_position_y)+"px",
+        <button class="left"> Влево </button>
+        <button class="right"> Вправо </button>
+        <button class="up"> Вверз </button>
+        <button class="down"> Вниз </button>
+        <div class="control_block_container">
+            <div id="box" style="position:absolute; top:150px; left:500px"> <img src="meme.jpg" width="400" height="300" alt="todo"> </div>
+        </div>
+         <script type="text/javascript">
+            var lr = window.screen.availWidth,
+                ud = window.screen.availHeight,
+                lr1 = 0,
+                lr2 = 0,
+                ud1 = 0,
+                ud2 = 0;
+            $(".left").click(function(){
+                if (0<(500-lr1+lr2)){
+                $("#box").animate({left: "-=100"}, 1000)
+                lr1=lr1+100;
+                }
             });
-            e.preventDefault();
-        }
-    </script>
+            $(".right").click(function(){
+                if (lr>(500+400-lr1+lr2+100)){
+                $("#box").animate({left: "+=100"}, 1000)
+                lr2=lr2+100;
+                }
+            });
+            $(".up").click(function(){
+                if (0<(150-ud1+ud2-100)){
+                $("#box").animate({top: "-=100"}, 1000)
+                ud1=ud1+100;
+                }
+            });
+            $(".down").click(function(){
+                if (ud>(150+450-ud1+ud2+100)){
+                $("#box").animate({top: "+=100"}, 1000)
+                ud2=ud2+100;
+                }
+            });
+        </script>
+    </body>
 </html>
