@@ -31,7 +31,7 @@
             get_s += need_to_get;
             $.ajax({
                 type: "GET",
-                url: "serials.php?get_s=" + get_s + "&need_to_get=" + need_to_get,
+                url: "photodevices.php?get_s=" + get_s + "&need_to_get=" + need_to_get,
                 dataType: "html",
                 success: function(data){
                     document.getElementById("serials_b").innerHTML += data;
