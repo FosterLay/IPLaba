@@ -1,0 +1,38 @@
+<html>
+    <title>Записи фотографов</title>
+    <head>
+        <meta charset = "UTF-8">
+        <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+        <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+        <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    </head>
+    <body style="margin-left:25%;width:50%;background-color: aliceblue;" align='center'>
+        <section style="background-color: rgb(164, 213, 255);">
+            <h1 style="font-size: 35px;">Записи фотографов</h1>
+
+            <section style='background-color: rgb(255, 251, 233);margin-left: 25%; width: 50%;' id="post_body">
+            </section>
+
+            <button class="ui-button ui-widget ui-corner-all" onclick="window.location.href='post_form.html'">Создать запись</button>
+        </section>
+    </body>
+
+    <script language="JavaScript" src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script language="JavaScript">
+        var loaded = 0;
+        var need_to_load = 5;
+
+        $(document).ready(upload());
+
+        function upload() {
+            $.ajax({
+                type: "GET",
+                url: "get_posts.php",
+                dataType: "html",
+                success: function(data){
+                    document.getElementById("post_body").innerHTML += data;
+                }
+            });
+        }
+    </script>
+</html>

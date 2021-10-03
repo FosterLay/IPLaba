@@ -1,0 +1,185 @@
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+        <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+        <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+        <style type="text/css">
+            .ui-slider {
+                height: 15px;
+                width: 50%;
+                margin-left: 25%;
+            }
+        </style>
+    </head>
+
+    <body style="margin-left:25%;width:50%;background-color: aliceblue;" align="center">
+        <section style="background-color: rgb(164, 213, 255);">
+            <h1 style="font-size: 35px;">Создать запись</h1>
+            <form name="rent_form">
+                <p>
+                    <div style="font-size: 20px;">Ссылка на фотографию</div>
+                    <input id="image" title="Фотография" type="text" onchange="set_image()">
+                </p>
+
+                <p id='image_place'></p>
+
+                <p>
+                    <div style="font-size: 20px;">Автор</div>
+                    <input id="author" title="Автор" type="text">
+                </p>
+
+                <p>
+                    <div style="font-size: 20px;">Дата создания снимка</div>
+                    <input id="start_date" type="text" readonly="readonly">
+                </p>
+
+                <p>
+                    <div style="font-size: 20px;">Тип обработки</div>
+                    <select id="care_type">
+                        <option value="0" selected="selected">Без обработки и фильтров</option>
+                        <option value="1">Обработка</option>
+                        <option value="2">Фильтры</option>
+                        <option value="3">Обработка и фильтры</option>
+                    </select>
+                </p>
+
+                <p>
+                    <div style="font-size: 20px;">Срок существования записи</div>
+                    <div style="margin-left:20%;width:60%;" id="rent_type">
+                        <h3 id="rent_type_1">На пару дней/месяцев</h3>
+                        <div>
+                            <p>
+                                Запись выкладывается на пару месяцев.
+                                По окончанию срока запись удаляется.
+
+                                <div>Количество дней</div>
+                                <p type="text" id="slider" readonly="readonly">
+                            </p>
+                            <input id="slider_view" type="text" title="Количество дней" value="1" readonly="readonly">
+                        </div>
+                        <h3 id="rent_type_2">Навсегда</h3>
+                        <div>
+                            Запись будет сохранена навечно.
+                        </div>
+                    </div>
+                </p>
+
+                <p>
+                    <div style="font-size: 20px;">Стоимость создания записи</div>
+                    <input id="price" type="text" title="Стоимость аренды" value="40" readonly="readonly">
+                </p>
+
+                <p><input class="ui-button ui-widget ui-corner-all" type="button" value="Подать" onclick="send();"></p>
+            </form>
+
+            <div id="ok_dialog" title="Уведомление!">
+                <p>Заявка подана.</p>
+            </div>
+            <div id="error_dialog" title="Уведомление!">
+                <p>Заполните все поля.</p>
+            </div>
+        </section>
+    </body>
+
+    <script language="JavaScript">
+        // Инициализация объектов
+        $("#start_date").datepicker({
+            dateFormat: "dd.mm.yy",
+        });
+
+        $("#care_type").selectmenu();
+
+        var rent_chosen = 1;
+        $("#rent_type").accordion({
+            activate: function(event, ui) {
+                var currentHeaderID = ui.newHeader.attr("id");
+                if (currentHeaderID === "rent_type_1"){
+                    rent_chosen = 1;
+                    count_price();
+                }
+                else{
+                    rent_chosen = 2;
+                    count_price();
+                }
+            }
+        });
+
+        var slider_value = 0;
+        $("#slider").slider({
+            step: 1,
+            min: 1,
+            max: 90,
+            slide: function(event, ui) {
+                document.getElementById("slider_view").value = ui.value;
+
+                slider_value = ui.value;
+
+                count_price();
+            },
+        });
+
+        $("#ok_dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            buttons: {
+                "Вернуться назад": function() {
+                    window.location.href = 'index.html';
+                    $(this).dialog("close");
+                },
+            }
+        });
+        $("#error_dialog").dialog({
+            autoOpen: false,
+        });
+
+        $(document).tooltip();
+
+        function count_price(){
+            if(rent_chosen==1){
+                document.getElementById("price").value = 40 * slider_value;
+            }
+            else{
+                document.getElementById("price").value = 16000;
+            }
+        }
+
+        function send(){
+            var author=document.getElementById("author").value;
+            var image=document.getElementById("image").value;
+            var date=document.getElementById("start_date").value;
+
+            if (
+                length(author)==0||
+                length(image)==0||
+                length(date)==0
+            ){
+                $("#error_dialog").dialog("open");
+                return;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "add_post.php?author=" + author + "&image=" + image,
+                dataType: "html",
+                success: function(data){
+                    $("#ok_dialog").dialog("open");
+                }
+            });
+        }
+
+        function length(str){
+            var strIter = str[Symbol.iterator]();
+            let str_lenght = 0;
+            for (let ch of strIter){str_lenght++;}
+            return str_lenght;
+        }
+
+        function set_image(){
+            var image=document.getElementById("image").value;
+            if (length(image)!=0){
+                document.getElementById("image_place").innerHTML = "<img src='"+image+"'>";
+            }
+        }
+    </script>
+</html>
